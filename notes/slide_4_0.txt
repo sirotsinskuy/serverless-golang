@@ -1,0 +1,7 @@
+  hello_world:
+    name:
+    architecture:
+    package:
+      artifact:
+      individually: true
+    handler:

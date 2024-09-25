@@ -1,0 +1,2 @@
+1) AWS Lambda docs for golang packages: https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html
+2) sls deploy function --function hello_world --stage dev #NOTE: only code update
