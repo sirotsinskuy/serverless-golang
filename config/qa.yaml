@@ -1,0 +1,4 @@
+env:
+  name: QA
+lambda:
+  timeout: 20

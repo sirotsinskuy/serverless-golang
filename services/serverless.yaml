@@ -1,0 +1,24 @@
+service: hello-service-demo
+
+provider:
+  name: aws
+  region: us-east-1
+  runtime: provided.al2 #https://docs.aws.amazon.com/lambda/latest/dg/lambda-golang.html
+  environment:
+    ENV_NAME: ${file(../config/${opt:stage}.yaml):env.name}
+  httpApi:
+    id: ykpuzpp02k
+
+functions:
+  hello_world:
+    name: hello_world-${opt:stage}
+    architecture: arm64
+    package:
+      artifact: hello_world/hello_world.zip
+      individually: true
+    handler: bootstrap
+    timeout: ${file(../config/${opt:stage}.yaml):lambda.timeout}
+    events:
+      - httpApi:
+          method: GET
+          path: /hello-world/{name}
